@@ -2,6 +2,8 @@ import { Header } from "@/components/Header";
 import { Card, CardBody, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+export const dynamic = "force-dynamic";
+
 export default function AdminPage() {
   return (
     <main>

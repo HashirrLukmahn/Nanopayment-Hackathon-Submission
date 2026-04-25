@@ -4,6 +4,8 @@ import { AgentDemo } from "@/components/AgentDemo";
 import { ProblemStatement } from "@/components/ProblemStatement";
 import { PricingTiers } from "@/components/PricingTiers";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   return (
     <main>
