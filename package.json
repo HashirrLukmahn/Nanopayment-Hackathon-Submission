@@ -9,7 +9,7 @@
     "build:api": "pnpm --filter @luqman/api build",
     "build:web": "pnpm --filter @luqman/web build",
     "start:api": "pnpm --filter @luqman/api build && pnpm --filter @luqman/api start",
-    "start:web": "pnpm --filter @luqman/web start",
+    "start:web": "pnpm --filter @luqman/web build && pnpm --filter @luqman/web start",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
