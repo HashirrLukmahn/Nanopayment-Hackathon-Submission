@@ -1,0 +1,27 @@
+node_modules/
+.pnpm-store/
+.turbo/
+dist/
+build/
+.next/
+out/
+coverage/
+.env
+.env.local
+.env.*.local
+!.env.example
+*.log
+.DS_Store
+.idea/
+.vscode/
+package-lock.json
+*.tsbuildinfo
+
+# Circle wallet recovery files
+output/
+
+# Foundry
+packages/contracts/out/
+packages/contracts/cache/
+packages/contracts/broadcast/
+packages/contracts/lib/

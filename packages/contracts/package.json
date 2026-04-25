@@ -1,0 +1,12 @@
+{
+  "name": "@luqman/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "install:deps": "forge install foundry-rs/forge-std OpenZeppelin/openzeppelin-contracts --no-commit",
+    "build": "forge build",
+    "test": "forge test -vv",
+    "test:gas": "forge test -vv --gas-report",
+    "deploy": "forge script script/Deploy.s.sol --rpc-url arc_testnet --broadcast -vvvv"
+  }
+}

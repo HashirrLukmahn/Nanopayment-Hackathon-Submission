@@ -1,0 +1,35 @@
+{
+  "name": "luqman",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "db:push": "pnpm --filter @luqman/api db:push",
+    "db:migrate": "pnpm --filter @luqman/api db:migrate",
+    "seed": "pnpm --filter @luqman/api seed",
+    "seed:researchers": "pnpm --filter @luqman/api seed:researchers",
+    "seed:corpus": "pnpm --filter @luqman/api seed:corpus",
+    "demo": "pnpm --filter @luqman/api demo",
+    "contracts:test": "pnpm --filter @luqman/contracts test",
+    "contracts:deploy": "pnpm --filter @luqman/contracts deploy"
+  },
+  "dependencies": {
+    "@circle-fin/developer-controlled-wallets": "^7.0.0",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.39",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.2",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

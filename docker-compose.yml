@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: luqman-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: luqman
+      POSTGRES_PASSWORD: luqman
+      POSTGRES_DB: luqman
+    ports:
+      - "5432:5432"
+    volumes:
+      - luqman-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U luqman -d luqman"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: luqman-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@luqman.local
+      PGADMIN_DEFAULT_PASSWORD: luqman
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  luqman-pgdata:

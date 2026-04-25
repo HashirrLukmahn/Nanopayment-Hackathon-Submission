@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark editorial theme — "old paper on black" */
+    --background: 240 7% 4%;           /* #0B0B0E */
+    --foreground: 54 13% 91%;          /* #EAEAE6 */
+
+    --muted: 240 5% 10%;
+    --muted-foreground: 240 4% 64%;
+
+    --card: 240 6% 6%;
+    --card-foreground: 54 13% 91%;
+
+    --border: 240 5% 16%;              /* #26262B */
+    --input: 240 5% 16%;
+
+    --accent: 31 45% 65%;              /* desaturated amber #D4A574 */
+    --accent-foreground: 240 7% 4%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans), Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  /* Thin top-border panel look */
+  hr {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .text-mono {
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  }
+  .text-serif {
+    font-family: var(--font-serif), "Source Serif 4", Georgia, serif;
+  }
+  .ruled {
+    /* 1px border, used as a hairline divider */
+    @apply border-t border-border;
+  }
+  .grid-bleed {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--border)) 1px,
+        transparent 1px
+      );
+    background-size: 96px 100%;
+  }
+}
