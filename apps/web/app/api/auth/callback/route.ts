@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { scalekit, REDIRECT_URI, COOKIE } from '@/lib/scalekit';
 
 const API_BASE = process.env.API_BASE_URL ?? 'http://localhost:3001';
+const APP_BASE = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 /**
  * GET /api/auth/callback?code=...
@@ -20,7 +21,7 @@ export async function GET(req: Request) {
   if (error || !code) {
     const msg = encodeURIComponent(error ?? 'missing_code');
     return NextResponse.redirect(
-      new URL(`/researcher?auth_error=${msg}`, req.url),
+      new URL(`/researcher?auth_error=${msg}`, APP_BASE),
     );
   }
 
@@ -30,7 +31,7 @@ export async function GET(req: Request) {
   } catch (err) {
     console.error('[auth/callback] token exchange failed:', err);
     return NextResponse.redirect(
-      new URL('/researcher?auth_error=token_exchange_failed', req.url),
+      new URL('/researcher?auth_error=token_exchange_failed', APP_BASE),
     );
   }
 
@@ -43,7 +44,7 @@ export async function GET(req: Request) {
     headers: { Authorization: `Bearer ${accessToken}` },
   }).catch((err) => console.error('[auth/callback] wallet provision failed:', err));
 
-  const res = NextResponse.redirect(new URL('/researcher', req.url));
+  const res = NextResponse.redirect(new URL('/researcher', APP_BASE));
 
   res.cookies.set(COOKIE.ACCESS, accessToken, {
     httpOnly: true,
