@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { runQuery, registerAgent, type QueryResponse } from "@/lib/api";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
@@ -122,9 +123,19 @@ export function AgentDemo() {
               <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
                 Answer
               </div>
-              <p className="text-sm leading-relaxed text-foreground/90 whitespace-pre-wrap">
-                {result.answer}
-              </p>
+              <div className="prose prose-sm prose-invert max-w-none text-foreground/90
+                [&_h1]:font-serif [&_h1]:text-xl [&_h1]:mt-4 [&_h1]:mb-2
+                [&_h2]:font-serif [&_h2]:text-lg [&_h2]:mt-3 [&_h2]:mb-1.5
+                [&_h3]:font-medium [&_h3]:text-base [&_h3]:mt-3 [&_h3]:mb-1
+                [&_p]:leading-relaxed [&_p]:mb-2
+                [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-2
+                [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-2
+                [&_li]:mb-0.5
+                [&_strong]:text-foreground [&_strong]:font-semibold
+                [&_code]:bg-muted/50 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs [&_code]:font-mono
+                [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-2">
+                <ReactMarkdown>{result.answer}</ReactMarkdown>
+              </div>
             </div>
 
             {/* Payment receipt */}
