@@ -26,12 +26,18 @@ export const metadata: Metadata = {
   title: "Luqman — the dark corpus of unpublished science",
   description:
     "A pay-per-query marketplace for unpublished negative research results. Researchers get paid, per chunk, every time an AI agent learns from their work.",
-  metadataBase: new URL("https://luqman.dev"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "Luqman",
     description:
       "The 90% of research that never gets published is worth more than the 10% that does.",
     type: "website",
+    images: [{ url: "/logo.svg", width: 200, height: 200 }],
   },
 };
 

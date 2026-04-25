@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Black background -->
+  <rect width="200" height="200" fill="#000000"/>
+
+  <!-- Bearded man silhouette — side profile facing left -->
+  <g fill="#ffffff">
+    <!-- Cap / flat top -->
+    <ellipse cx="108" cy="52" rx="38" ry="10" />
+    <rect x="70" y="48" width="76" height="8" rx="2"/>
+
+    <!-- Head -->
+    <ellipse cx="100" cy="80" rx="32" ry="34"/>
+
+    <!-- Neck -->
+    <rect x="84" y="108" width="26" height="18" rx="4"/>
+
+    <!-- Beard — wide flowing shape -->
+    <path d="M62 112 Q55 130 60 148 Q70 168 100 172 Q130 168 138 148 Q142 132 136 112 Q120 125 100 127 Q80 125 62 112Z"/>
+
+    <!-- Nose bump (profile) -->
+    <ellipse cx="70" cy="85" rx="7" ry="5" transform="rotate(-20 70 85)"/>
+
+    <!-- Chin definition -->
+    <ellipse cx="72" cy="100" rx="10" ry="6" transform="rotate(15 72 100)"/>
+
+    <!-- Mustache -->
+    <ellipse cx="80" cy="106" rx="18" ry="6"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="100" y="192" font-family="Georgia, serif" font-size="13" fill="#888888" text-anchor="middle" letter-spacing="4">LUQMAN</text>
+</svg>
