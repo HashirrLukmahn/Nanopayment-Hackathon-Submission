@@ -120,14 +120,16 @@ export async function getWalletBalance(walletId: string): Promise<WalletBalance>
   }
 
   try {
+    // Circle SDK v7.x: parameter is `id`, not `walletId`. The underlying API
+    // method is `listWalletBalance` and it expects `{ id: <walletUuid> }`.
     const client = (await getClient()) as {
-      getWalletTokenBalance: (a: { walletId: string }) => Promise<{
+      getWalletTokenBalance: (a: { id: string }) => Promise<{
         data?: {
           tokenBalances?: Array<{ token?: { symbol: string }; amount: string }>;
         };
       }>;
     };
-    const res = await client.getWalletTokenBalance({ walletId });
+    const res = await client.getWalletTokenBalance({ id: walletId });
     const usdc = res.data?.tokenBalances?.find(
       (b) => b.token?.symbol === 'USDC',
     )?.amount ?? '0.000000';
