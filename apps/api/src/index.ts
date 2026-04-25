@@ -1,4 +1,4 @@
-import Fastify from 'fastify';
+import Fastify, { type FastifyBaseLogger } from 'fastify';
 import cors from '@fastify/cors';
 import sensible from '@fastify/sensible';
 import { env } from './env';
@@ -18,7 +18,14 @@ import { userRoutes } from './routes/users';
  * and binds to env.PORT.
  */
 async function buildServer() {
-  const app = Fastify({ loggerInstance: logger, trustProxy: true });
+  // Cast the pino instance to FastifyBaseLogger so the FastifyInstance generic
+  // resolves to the same shape that our plugins are typed against. Without the
+  // cast, Fastify v4 widens the logger type to Pino's full Logger<never, boolean>
+  // and apiKeyPlugin/idempotencyPlugin (typed against FastifyBaseLogger) reject it.
+  const app = Fastify({
+    logger: logger as unknown as FastifyBaseLogger,
+    trustProxy: true,
+  });
 
   await app.register(cors, {
     origin: true,
