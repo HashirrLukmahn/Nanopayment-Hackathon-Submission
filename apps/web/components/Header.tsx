@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cookies } from "next/headers";
 import { COOKIE } from "@/lib/scalekit";
 
@@ -30,7 +31,7 @@ export function Header() {
     <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_hsl(var(--accent))]" />
+          <Image src="/luqman_logo.png" alt="Luqman" width={28} height={28} className="rounded-sm" />
           <span className="font-serif text-lg tracking-tight">Luqman</span>
           <span className="hidden text-xs text-muted-foreground sm:inline">· the library of failed experiments</span>
         </Link>

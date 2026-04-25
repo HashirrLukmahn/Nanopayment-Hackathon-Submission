@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "A pay-per-query marketplace for unpublished negative research results. Researchers get paid, per chunk, every time an AI agent learns from their work.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/luqman_logo.png",
+    shortcut: "/luqman_logo.png",
+    apple: "/luqman_logo.png",
   },
   openGraph: {
     title: "Luqman",
